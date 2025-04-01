@@ -2,7 +2,12 @@ import React from 'react';
 import './App.css';
 import { FaDiscord, FaFacebook, FaInstagram, FaTwitter, FaRedditSquare, FaYoutube } from 'react-icons/fa';
 
+import logo from './logo.png';
+
+import { genetics } from './genetics.js';
+
 function App() {
+
   return (
     <div className="container">
       {/* Welcome Section */}
@@ -10,8 +15,7 @@ function App() {
         <div className="welcome-background"></div>
         <div className="welcome-overlay"></div>
         <div className="welcome-content">
-          <h1>GabySI</h1>
-          <p>Premium cannabis genetics with high terpene profiles.</p>
+          <img src={logo} height='300' width='300' alt='GabySI Logo' />
         </div>
       </section>
       
@@ -22,23 +26,32 @@ function App() {
         <iframe width="560" height="315" src="https://www.youtube.com/embed/WPb7iFqGdWc?si=PUldaG3GrTwIfCo4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
       </section>
+
+      {/* Instagram Section */}
+      {/* <section className="instagram">
+        <h2>Insta Stuff</h2>
+        <div className="video-container">
+          <iframe
+            src="https://www.instagram.com/p/POST_ID/embed"
+            width="400"
+            height="480"
+            frameBorder="0"
+            scrolling="no"
+            allowTransparency="true"
+          ></iframe>
+        </div>
+      </section> */}
       
       {/* Genetics List Section */}
       <section className="genetics">
         <h2>My Genetics</h2>
         <div className="strain-list">
-          <div className="strain-card">
-            <h3>Galactic Kush</h3>
-            <p>28% THC | Citrus & Pine Terpenes</p>
-          </div>
-          <div className="strain-card">
-            <h3>Stellar Diesel</h3>
-            <p>24% THC | Diesel & Earthy Aromas</p>
-          </div>
-          <div className="strain-card">
-            <h3>Nebula Haze</h3>
-            <p>22% THC | Berry & Skunky Undertones</p>
-          </div>
+          {genetics.map((strain, index) => (
+            <div className="strain-card">
+              <h3>{ strain.name }</h3>
+              <p>{ strain.percentage }% THC | { strain.terpenes }</p>
+            </div>
+          ))}
         </div>
       </section>
       
